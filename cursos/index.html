@@ -529,7 +529,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
       <div class="sec-hd">
         <span class="eyebrow fade">Área de cursos</span>
         <h1 class="h h2 split">Aprenda o meu <span class="tag">método.</span></h1>
-        <p class="fade">Escolha um curso para ver a apresentação, tudo o que você recebe e liberar o acesso na hora, com pagamento seguro pela Cakto.</p>
+        <p class="fade">Escolha um curso ou o app Meu QG para ver tudo o que você recebe e liberar o acesso na hora, com pagamento seguro pela Cakto.</p>
       </div>
       <div class="cur-grid">
         <article class="cur cc glass rv tilt">
@@ -551,6 +551,22 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
           <div class="preco"><b>R$ 19,90</b><span>pagamento único</span></div>
           <a class="btn pri" id="comprarJovem" href="../empreenda-jovem/">Quero aprender <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span class="sr"> (abre a página do curso)</span></a>
           <p class="nota-compra">Pagamento seguro pela Cakto, com acesso imediato. Menor de idade compra com um responsável. Ao comprar, você concorda com os <a href="../termos.html">Termos de Uso</a>.</p>
+        </article>
+        <article class="cur dest glass rv tilt">
+          <span class="selo"><i class="vivo"></i>Disponível</span>
+          <h3>Meu QG</h3>
+          <p>O app para organizar toda a sua vida: finanças, demandas do trabalho, agenda, rotina, saúde, estudos e conteúdo, num app só, no celular e no computador.</p>
+          <div class="mock" aria-hidden="true"><div class="bar"><i></i><i></i><i></i></div><div class="body"><div class="k a"></div><div class="k"></div><div class="k"></div><div class="k"></div><div class="g"><svg viewBox="0 0 300 70" preserveAspectRatio="none"><path d="M0 58 C40 52 60 40 90 44 S150 22 180 28 S240 8 300 12" fill="none" stroke="#f26b1d" stroke-width="3" stroke-linecap="round"/></svg></div></div></div>
+          <ul class="lista">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Finanças e metas</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Demandas por empresa</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Agenda e rotina</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Treino e dieta</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Estudos e leitura</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Instala no iPhone e Android</li>
+          </ul>
+          <a class="btn pri" id="comprarQG" target="_blank" rel="noopener">Quero o meu QG <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span class="sr"> (abre o pagamento em nova aba)</span></a>
+          <p class="nota-compra">Pagamento seguro pela Cakto, com acesso imediato. Ao comprar, você concorda com os <a href="../termos.html">Termos de Uso</a>.</p>
         </article>
         <article class="cur glass rv tilt">
           <span class="selo cinza">Em breve<span class="pts" aria-hidden="true"><i></i><i></i><i></i></span></span>
@@ -583,6 +599,7 @@ document.querySelectorAll('[data-zap]').forEach(a=>{a.href=zap(a.dataset.zap);a.
 document.querySelectorAll('[data-insta]').forEach(a=>{a.href='https://instagram.com/'+a.dataset.insta;a.target='_blank';a.rel='noopener'});
 
 document.getElementById('ano').textContent=new Date().getFullYear();
+const qg=document.getElementById('comprarQG');if(qg)qg.href=DADOS.caktoQG||zap('Olá! Quero comprar o Meu QG.');
 /* menu */
 const nav=document.getElementById('nav'),menu=document.getElementById('menu'),bg=document.getElementById('burger');
 const onScroll=()=>nav.classList.toggle('solid',scrollY>20||menu.classList.contains('open'));onScroll();addEventListener('scroll',onScroll,{passive:true});
