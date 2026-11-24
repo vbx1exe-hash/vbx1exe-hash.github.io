@@ -7,7 +7,7 @@ window.DADOS = {
   nome: 'Vitor Emanuel',
   razaoSocial: 'Vitor Emanuel (pessoa física)',        // nome da empresa no CNPJ que vende os cursos. Ex.: Vitor Emanuel Silva LTDA
   cnpj: '153.781.914-32',               // ex.: 00.000.000/0001-00  (ou CPF, se vender como pessoa física)
-  endereco: '',           // endereço completo (obrigatório para venda online, Decreto 7.962/2013)
+  endereco: 'Rua Monsenhor Abílio Galvão, nº 4, Catende/PE, Brasil',           // endereço completo (obrigatório para venda online, Decreto 7.962/2013)
   email: 'vbx1.exe@gmail.com',              // e-mail de atendimento e de privacidade. Ex.: contato@seudominio.com.br
   whatsapp: '5581999948932', // só números: 55 + DDD + número
   atualizado: '24 de novembro de 2026',
