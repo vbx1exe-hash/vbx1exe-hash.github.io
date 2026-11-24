@@ -1,0 +1,134 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Claude na Prática · Vitor Emanuel</title><meta name="description" content="Aprenda a usar o Claude de verdade: como a IA funciona, prompts que dão resultado, artefatos, conectores, agentes e como ganhar dinheiro com IA, prospectando clientes e criando sistemas com o Claude Code."><meta name="theme-color" content="#111110">
+<style>
+@font-face{font-family:Archivo;font-style:normal;font-display:swap;font-weight:100 900;font-stretch:62% 125%;src:url(../fonts/archivo-latin-standard-normal.woff2) format('woff2-variations')}
+@font-face{font-family:Archivo;font-style:normal;font-display:swap;font-weight:100 900;font-stretch:62% 125%;src:url(../fonts/archivo-latin-ext-standard-normal.woff2) format('woff2-variations');unicode-range:U+0100-024F}
+:root{--bg:#111110;--txt:#f4f1ec;--mut:#b3aea6;--dim:#a19c94;--acc:#f26b1d;--acc-2:#ff8a47;--acc-soft:rgba(242,107,29,.14);
+  --glass:rgba(28,27,26,.46);--glass-brd:rgba(255,255,255,.09);--glass-edge:rgba(255,255,255,.2);--glass-shine:rgba(255,255,255,.09);--ease:cubic-bezier(.2,.75,.2,1)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:radial-gradient(1100px 700px at 88% -10%,rgba(242,107,29,.22),transparent 60%),radial-gradient(900px 600px at -10% 110%,rgba(242,107,29,.12),transparent 60%),var(--bg);background-attachment:fixed;color:var(--txt);font-family:Archivo,system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}img{max-width:100%;display:block}
+:focus-visible{outline:3px solid #ffb37a;outline-offset:3px;border-radius:8px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);font-weight:700;display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--acc);border-radius:2px}
+.h{font-stretch:125%;font-weight:900;text-transform:uppercase;letter-spacing:-.02em;line-height:.95;margin:0}
+.h2{font-size:clamp(30px,5.5vw,58px)}
+.tag{background:linear-gradient(100deg,#f26b1d 0%,#ff8a3d 18%,#d9480b 38%,#f26b1d 55%,#ff9a52 72%,#e85a12 88%,#f26b1d 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:gradTxt 5s linear infinite}
+@keyframes gradTxt{to{background-position:-220% 50%}}
+.lead{color:var(--mut);font-size:clamp(17px,2vw,20px);margin:0}
+.glass{position:relative;background:linear-gradient(180deg,var(--glass-shine) 0%,rgba(255,255,255,0) 42%),var(--glass);-webkit-backdrop-filter:blur(22px) saturate(180%);backdrop-filter:blur(22px) saturate(180%);border:1px solid var(--glass-brd);box-shadow:inset 0 1px 0 var(--glass-edge),0 18px 50px rgba(0,0,0,.35);border-radius:22px}
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:999px;padding:15px 26px;font:800 15px Archivo,sans-serif;text-decoration:none;cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s,background .2s;white-space:nowrap;color:var(--txt)}
+.btn svg{width:18px;height:18px}
+.btn.pri{background:linear-gradient(100deg,#f26b1d,#ff8a3d 22%,#e2530f 45%,#f26b1d 60%,#ff9a52 80%,#f26b1d);background-size:240% 100%;animation:gradBtn 5s linear infinite;color:#141414;box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 10px 30px rgba(242,107,29,.25)}
+@keyframes gradBtn{to{background-position:-240% 50%}}
+.btn.pri:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.sec{background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.02));box-shadow:inset 0 1px 0 var(--glass-edge),inset 0 0 0 1px var(--glass-brd)}
+.btn.sec:hover{transform:translateY(-2px);background:rgba(242,107,29,.28)}
+.btn.sm{padding:10px 16px;font-size:14px}
+.preencher{display:inline-block;color:#141414;background:#ffc46b;font:800 12px Archivo,sans-serif;letter-spacing:.06em;padding:2px 8px;border-radius:6px;vertical-align:middle}
+.marca{font-stretch:125%;font-weight:900;font-size:20px;letter-spacing:-.02em;text-decoration:none}.marca b{color:var(--acc)}
+.topo{position:fixed;inset:12px 12px auto 12px;z-index:50;border-radius:20px;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,0) 60%),rgba(22,21,20,.6);-webkit-backdrop-filter:blur(22px) saturate(180%);backdrop-filter:blur(22px) saturate(180%);box-shadow:inset 0 1px 0 var(--glass-edge),inset 0 0 0 1px var(--glass-brd),0 10px 30px rgba(0,0,0,.3)}
+.topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:62px}
+.topo .wrap>.btn{flex:none;white-space:nowrap}
+section{padding:96px 0}
+.sec-hd{display:flex;flex-direction:column;gap:14px;margin-bottom:40px}
+footer{border-top:1px solid var(--glass-brd);padding:32px 0;color:var(--dim);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 22px;justify-content:space-between}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 18px}footer a{color:var(--mut)}
+@media (prefers-reduced-motion:reduce){.tag,.btn.pri{animation:none}html{scroll-behavior:auto}}
+
+.abertura{padding:150px 0 70px;text-align:center}
+.abertura .h{font-size:clamp(46px,9vw,110px);margin:16px 0 18px}
+.abertura .lead{max-width:760px;margin:0 auto}
+.video{margin:40px auto 0;max-width:900px;aspect-ratio:16/9;border-radius:22px;overflow:hidden;display:grid;place-items:center;text-align:center;color:var(--mut)}
+.video img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35}
+.video .v-in{position:relative;display:grid;gap:10px;justify-items:center}
+.play{width:78px;height:78px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.14);box-shadow:inset 0 1px 0 rgba(255,255,255,.35)}
+.play svg{width:30px;height:30px;margin-left:4px}
+.preco{text-align:center}
+.preco .box{max-width:780px;margin:0 auto;padding:44px clamp(20px,5vw,56px)}
+.valor{display:flex;justify-content:center;align-items:baseline;gap:10px;margin:22px 0 6px}
+.valor .un{font-size:26px;font-weight:800;color:var(--mut)}
+.valor .n{font-stretch:125%;font-weight:900;font-size:clamp(70px,13vw,120px);line-height:1}
+.cond{color:var(--mut)}
+.benef{list-style:none;padding:0;margin:28px 0;display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;text-align:left}
+.benef li{display:flex;gap:10px;align-items:flex-start}.benef svg{width:20px;height:20px;color:var(--acc);flex:none;margin-top:3px}
+.miudas{font-size:13px;color:var(--dim);margin-top:16px}.miudas a{color:var(--acc-2)}
+.nums{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:22px}
+.num{padding:20px 16px;text-align:center}.num b{display:block;font-stretch:125%;font-weight:900;font-size:36px;color:var(--acc);line-height:1}.num span{font-size:13px;color:var(--mut)}
+.mods{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.mod{padding:22px;display:flex;flex-direction:column;gap:8px;transition:transform .4s var(--ease),border-color .3s,background .3s}
+.mod:hover{transform:translateY(-5px);border-color:rgba(242,107,29,.55);background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,0) 42%),rgba(242,107,29,.18)}
+.mod .ic{width:46px;height:46px;border-radius:13px;background:var(--acc-soft);color:var(--acc);display:grid;place-items:center}.mod .ic svg{width:24px;height:24px}
+.mod .nm{font-size:12px;font-weight:800;letter-spacing:.14em;color:var(--acc-2);text-transform:uppercase}
+.mod h3{margin:0;font-size:18px;line-height:1.25}.mod p{margin:0;color:var(--mut);font-size:14.5px}
+.passos{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.passo{padding:24px}.passo .n{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-stretch:125%;font-weight:900;color:#141414;background:linear-gradient(135deg,#ff9a52,#d9480b);margin-bottom:12px}
+.passo b{display:block}.passo span{color:var(--mut);font-size:15px}
+.garantia{display:flex;gap:26px;align-items:center;margin-top:18px;padding:28px}
+.selo{flex:none;width:120px;height:120px;border-radius:50%;display:grid;place-items:center;text-align:center;background:radial-gradient(circle,rgba(242,107,29,.3),rgba(242,107,29,.08));box-shadow:inset 0 0 0 2px rgba(242,107,29,.6),0 0 30px rgba(242,107,29,.25)}
+.selo b{display:block;font-stretch:125%;font-weight:900;font-size:40px;line-height:1;color:var(--acc)}.selo span{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.garantia h3{margin:0 0 6px;font-size:20px}.garantia p{margin:0;color:var(--mut)}
+details{padding:0 22px;border-radius:16px;margin-bottom:10px}
+summary{cursor:pointer;list-style:none;padding:18px 0;font-weight:700;display:flex;justify-content:space-between;gap:16px}summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--acc);font-size:24px;line-height:1;transition:transform .3s}details[open] summary::after{transform:rotate(45deg)}
+details p{margin:0 0 18px;color:var(--mut)}
+.final{text-align:center}.final .h{font-size:clamp(34px,6vw,64px);margin:14px 0}.final p{color:var(--mut);margin:0 0 26px}
+.barra-cel{position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:60;display:none;align-items:center;justify-content:space-between;gap:12px;padding:10px 10px 10px 18px;border-radius:18px;transform:translateY(140%);transition:transform .35s var(--ease)}
+.barra-cel.on{transform:none}.barra-cel b{font-stretch:125%;font-weight:900;font-size:22px}.barra-cel small{color:var(--mut);display:block;font-size:12px}
+@media (max-width:900px){.nums{grid-template-columns:repeat(3,1fr)}.passos{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){section{padding:72px 0}.benef{grid-template-columns:1fr}.nums{grid-template-columns:1fr 1fr}.passos{grid-template-columns:1fr}.garantia{flex-direction:column;text-align:center}.barra-cel{display:flex}.topo .btn{padding:9px 14px;font-size:13px}}
+</style></head><body>
+<header class="topo"><div class="wrap"><a class="marca" href="#">vitoremanuel<b>.</b></a><a class="btn pri sm" href="#preco">Quero aprender</a></div></header>
+<main>
+<section class="abertura"><div class="wrap">
+  <span class="eyebrow">Novo curso</span>
+  <h1 class="h">Claude na <span class="tag">Prática</span></h1>
+  <p class="lead">Aprenda a usar o Claude de verdade: como a IA funciona, prompts que dão resultado, artefatos, conectores, agentes e como ganhar dinheiro com IA, prospectando clientes e criando sistemas com o Claude Code.</p>
+  <div class="video glass"><video controls playsinline preload="metadata" poster="apresentacao.jpg" src="apresentacao.mp4" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000"></video></div>
+</div></section>
+
+<section class="preco" id="preco"><div class="wrap"><div class="box glass">
+  <h2 class="h h2">Comece hoje a usar o Claude <span class="tag">de verdade.</span></h2>
+  <p class="lead" style="margin-top:12px">Acesso a todos os módulos, apostilas em PDF e prompts prontos, com 7 dias de garantia.</p>
+  <div class="valor"><span class="un">R$</span><span class="n">19,90</span></div>
+  <div class="cond">pagamento único</div>
+  <ul class="benef"><li><svg  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>10 módulos</span></li><li><svg  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>10 videoaulas</span></li><li><svg  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>17 prompts prontos</span></li><li><svg  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>17 tarefas práticas</span></li><li><svg  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Apostila em PDF de cada módulo</span></li><li><svg  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Acesso pela Cakto</span></li></ul>
+  <a class="btn pri" href="#preco">Quero aprender <svg  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <p class="miudas">Pagamento seguro pela Cakto. <strong>7 dias de garantia</strong> com reembolso total. Ao comprar, você concorda com os <a href="../termos.html">Termos de Uso</a> e a <a href="../reembolso.html">Política de Reembolso</a>.</p>
+</div></div></section>
+
+<section id="conteudo"><div class="wrap">
+  <div class="sec-hd"><span class="eyebrow">Conteúdo do curso</span><h2 class="h h2">Tudo o que você <span class="tag">vai receber.</span></h2></div>
+  <div class="nums"><div class="num glass"><b>10</b><span>módulos</span></div><div class="num glass"><b>10</b><span>videoaulas</span></div><div class="num glass"><b>17</b><span>prompts prontos</span></div><div class="num glass"><b>17</b><span>tarefas práticas</span></div><div class="num glass"><b>12</b><span>apostilas em PDF</span></div><div class="num glass"><b>~26</b><span>min de vídeo</span></div></div>
+  <div class="mods"><article class="mod glass"><span class="ic"><svg  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg></span><span class="nm">Módulo 1</span><h3>Boas-vindas e a história do Claude</h3><p>Ao final: você conhece a história do Claude, sabe quais modelos existem no seu plano e já fez a primeira conversa com um objetivo claro.</p></article><article class="mod glass"><span class="ic"><svg  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg></span><span class="nm">Módulo 2</span><h3>Como a IA funciona</h3><p>Ao final: você entende tokens, treinamento, janela de contexto e alucinação, e sabe como pedir para reduzir erros.</p></article><article class="mod glass"><span class="ic"><svg  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M7 9h6M7 13h10"/></svg></span><span class="nm">Módulo 3</span><h3>Primeiros passos no Claude</h3><p>Ao final: você usa o Claude no computador e no celular, envia arquivos e tem um Projeto configurado para o seu negócio.</p></article><article class="mod glass"><span class="ic"><svg  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/><path d="M8 9h8M8 12h5"/></svg></span><span class="nm">Módulo 4</span><h3>Prompt: a arte de pedir</h3><p>Ao final: você tem um prompt-modelo no método C.T.F.R.E. e sabe usar papel, etapas, marcações e autoavaliação para melhorar qualquer resposta.</p></article><article class="mod glass"><span class="ic"><svg  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></span><span class="nm">Módulo 5</span><h3>Arquivos, projetos e pesquisa</h3><p>Ao final: você analisa documentos e planilhas com o Claude, tem um Projeto completo e faz pesquisas na web com fontes.</p></article><article class="mod glass"><span class="ic"><svg  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span><span class="nm">Módulo 6</span><h3>Artefatos</h3><p>Ao final: você criou e publicou o seu primeiro artefato: uma ferramenta útil para o seu negócio, com link para compartilhar.</p></article><article class="mod glass"><span class="ic"><svg  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 7H6a4 4 0 0 0 0 8h3M15 7h3a4 4 0 0 1 0 8h-3M8 11h8"/></svg></span><span class="nm">Módulo 7</span><h3>Conectores</h3><p>Ao final: você conectou pelo menos uma ferramenta (agenda, e-mail ou arquivos) e usa o Claude para consultar e organizar o seu dia.</p></article><article class="mod glass"><span class="ic"><svg  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/><path d="M19 4l2-2M5 4L3 2"/></svg></span><span class="nm">Módulo 8</span><h3>Agentes</h3><p>Ao final: você entende como um agente trabalha, usou a pesquisa aprofundada e desenhou sua primeira automação.</p></article><article class="mod glass"><span class="ic"><svg  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></span><span class="nm">Módulo 9</span><h3>Ganhar dinheiro com o Claude</h3><p>Ao final: você tem uma lista de 10 empresas com mensagens personalizadas e a primeira versão de um sistema para resolver uma dor real.</p></article><article class="mod glass"><span class="ic"><svg  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><span class="nm">Módulo 10</span><h3>Seu negócio, segurança e próximos passos</h3><p>Ao final: você tem um plano de 7 dias para colocar o Claude na rotina da empresa e regras claras de segurança e ética.</p></article></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sec-hd"><span class="eyebrow">Como cada aula funciona</span><h2 class="h h2">Aprenda fazendo, <span class="tag">em 4 passos.</span></h2></div>
+  <div class="passos"><div class="passo glass"><span class="n">1</span><b>Assista à videoaula do módulo</b><span>(2 a 4 minutos) para entender a ideia.</span></div><div class="passo glass"><span class="n">2</span><b>Leia a aula nesta apostila</b><span>com o Claude aberto do lado.</span></div><div class="passo glass"><span class="n">3</span><b>Copie o prompt-modelo</b><span>e troque o que está entre colchetes pelos seus dados.</span></div><div class="passo glass"><span class="n">4</span><b>Faça a tarefa de 15 minutos</b><span>e marque o checklist.</span></div></div>
+  <div class="garantia glass"><div class="selo"><div><b>7</b><span>dias</span></div></div><div><h3>Direito de arrependimento (7 dias)</h3><p>Você tem <strong>7 dias corridos</strong>, contados da compra, para desistir e receber <strong>100% do valor de volta</strong>, sem precisar explicar o motivo.</p></div></div>
+</div></section>
+
+<section><div class="wrap" style="max-width:860px">
+  <div class="sec-hd"><span class="eyebrow">Dúvidas</span><h2 class="h h2">Perguntas <span class="tag">frequentes.</span></h2></div>
+  <details class="glass"><summary>Preciso saber programar?</summary><p>Não. O curso começa do zero. Os módulos de artefatos e de Claude Code mostram como criar páginas e sistemas conversando em português.</p></details><details class="glass"><summary>Preciso pagar o Claude para fazer o curso?</summary><p>O plano gratuito serve para começar. Alguns recursos, como conectores, agentes e o Claude Code, aparecem nos planos pagos, e o curso avisa quando for o caso.</p></details><details class="glass"><summary>Como recebo o acesso?</summary><p>O pagamento é feito na Cakto, com Pix ou cartão. Depois da confirmação, você recebe o acesso à área do aluno com as videoaulas e as apostilas em PDF.</p></details><details class="glass"><summary>E se eu não gostar?</summary><p>Você tem 7 dias corridos, contados da compra, para desistir e receber 100% do valor de volta, sem precisar explicar o motivo.</p></details>
+</div></section>
+
+<section class="final"><div class="wrap">
+  <span class="eyebrow">Sua vez</span>
+  <h2 class="h">A IA não substitui quem pensa. <span class="tag">Ela multiplica quem sabe pedir.</span></h2>
+  <p>Comece pelo Módulo 0 e coloque o Claude para trabalhar no seu dia a dia, com método.</p>
+  <a class="btn pri" href="#preco">Quero aprender <svg  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div></section>
+</main>
+<footer><div class="wrap"><span>© <span id="ano"></span> Vitor Emanuel. Empresa Inteligente, NuRec Company e Layer Studio são marcas de seus titulares.</span>
+<nav><a href="../privacidade.html">Política de Privacidade</a><a href="../termos.html">Termos de Uso</a><a href="../reembolso.html">Política de Reembolso</a></nav></div></footer>
+<div class="barra-cel glass" id="barraCel"><div><b>R$ 19,90</b><small>pagamento único</small></div><a class="btn pri sm" href="#preco">Quero aprender</a></div>
+<script>
+document.getElementById('ano').textContent=new Date().getFullYear();
+const bc=document.getElementById('barraCel'),pr=document.getElementById('preco');
+const vb=()=>bc.classList.toggle('on',pr.getBoundingClientRect().bottom<0);addEventListener('scroll',vb,{passive:true});vb();
+</script></body></html>
