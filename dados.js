@@ -14,7 +14,8 @@ window.DADOS = {
 
   /* links de compra (Cakto) */
   caktoQG: '',
-  caktoClaude: '',      // link de checkout da Cakto do curso Claude na Prática
+  caktoClaude: 'https://pay.cakto.com.br/32dsh9c_1365590',      // link de checkout da Cakto do curso Claude na Prática
+  caktoJovem: 'https://pay.cakto.com.br/dqgn6dg_1365595',   // checkout da Cakto do curso Empreenda Jovem
 
   /* ferramentas de medição: só carregam se o visitante ACEITAR no aviso de cookies.
      Deixe vazio se não usar. */

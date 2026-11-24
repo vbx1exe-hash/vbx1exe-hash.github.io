@@ -243,7 +243,7 @@ section{padding:110px 0;position:relative}
 
 /* cursos */
 .cur-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;perspective:1200px}
-.cur-grid>.cur:last-child{grid-column:1/-1}
+.cur-grid>.cur:last-child:nth-child(odd){grid-column:1/-1}
 .cc .cc-tag{background:linear-gradient(100deg,#f26b1d,#ff9a52 45%,#e2530f);-webkit-background-clip:text;background-clip:text;color:transparent}
 .cc-info{display:flex;flex-wrap:wrap;gap:8px}
 .cc-info span{font-size:13px;color:var(--mut);padding:6px 12px;border-radius:99px;background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px var(--glass-brd)}
@@ -697,6 +697,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
           <div class="preco"><b>R$ 19,90</b><span>pagamento único</span></div>
           <a class="btn pri" id="comprarClaude" href="claude-na-pratica/">Quero aprender <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span class="sr"> (abre a página do curso)</span></a>
           <p class="nota-compra">Pagamento seguro pela Cakto. <strong>7 dias de garantia</strong> com reembolso total. Ao comprar, você concorda com os <a href="termos.html">Termos de Uso</a> e a <a href="reembolso.html">Política de Reembolso</a>.</p>
+        </article>
+        <article class="cur cc glass rv tilt">
+          <span class="selo"><i class="vivo"></i>Novo curso</span>
+          <h3>Empreenda <span class="cc-tag">Jovem</span></h3>
+          <p>Para quem está no ensino médio e quer começar a empreender: encontrar e validar uma ideia, custo, preço e lucro, marca, redes sociais e vendas, gestão, parcerias, a parte legal para menores de idade e um plano de 30 dias. Aulas curtas, com uma tarefa prática em cada uma.</p>
+          <div class="cc-info"><span><b>10</b> módulos</span><span><b>10</b> videoaulas</span><span><b>Ensino</b> médio</span></div>
+          <ol class="cc-mods"><li><span>01</span>Mentalidade empreendedora</li><li><span>02</span>Encontrando sua ideia</li><li><span>03</span>Como funciona o mercado</li><li><span>04</span>Dinheiro do negócio</li><li><span>05</span>Marketing e vendas</li><li><span>06</span>Gestão do dia a dia</li><li><span>07</span>Pessoas e parcerias</li><li><span>08</span>Lei e formalização para jovens</li><li><span>09</span>Ferramentas e IA</li><li><span>10</span>Seu plano e próximos passos</li></ol>
+          <div class="preco"><b>R$ 19,90</b><span>pagamento único</span></div>
+          <a class="btn pri" id="comprarJovem" href="empreenda-jovem/">Quero aprender <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span class="sr"> (abre a página do curso)</span></a>
+          <p class="nota-compra">Pagamento seguro pela Cakto. <strong>7 dias de garantia</strong> com reembolso total. Menor de idade compra com um responsável. Ao comprar, você concorda com os <a href="termos.html">Termos de Uso</a> e a <a href="reembolso.html">Política de Reembolso</a>.</p>
         </article>
         <article class="cur glass rv tilt">
           <span class="selo cinza">Em breve<span class="pts" aria-hidden="true"><i></i><i></i><i></i></span></span>
