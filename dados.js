@@ -13,7 +13,7 @@ window.DADOS = {
   atualizado: '24 de novembro de 2026',
 
   /* links de compra (Cakto) */
-  caktoQG: '',
+  caktoQG: 'https://pay.cakto.com.br/frw34j5_1365759',
   caktoClaude: 'https://pay.cakto.com.br/32dsh9c_1365590',      // link de checkout da Cakto do curso Claude na Prática
   caktoJovem: 'https://pay.cakto.com.br/dqgn6dg_1365595',   // checkout da Cakto do curso Empreenda Jovem
 
